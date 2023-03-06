@@ -99,8 +99,8 @@
 					<excludes>
 						<exclude>**/*Application.*</exclude>
 						<exclude>**/controlefinanceiro/configuration/**</exclude>
-						<exclude>**/controlefinanceiro/controller/dto</exclude>
-						<exclude>**/controlefinanceiro/controller/handler</exclude>
+						<exclude>**/controlefinanceiro/controller/dto/**</exclude>
+						<exclude>**/controlefinanceiro/controller/handler/**</exclude>
 						<exclude>**/controlefinanceiro/exception</exclude>
 						<exclude>**/controlefinanceiro/interceptor</exclude>
 						<exclude>**/test/java/**/*</exclude>
