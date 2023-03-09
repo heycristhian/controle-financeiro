@@ -1,19 +1,20 @@
 version: '3'
 
 volumes:
-  produto-ms-data: { }
+  db-data: { }
 
 services:
-  controle-financeiro:
-    build:
-      dockerfile: ./Dockerfile
-      context: .
-    image: heycristhian/controle-financeiro
-    container_name: controle-financeiro
+  db:
+    image: postgres:11.5-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: financeiro
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123456
     ports:
-      - "8080:8080"
-#    depends_on:
-#      - ""
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql
 
 networks:
   default:
@@ -21,3 +22,13 @@ networks:
     ipam:
       config:
         - subnet: 172.16.57.0/24
+#  controle-financeiro:
+#    build:
+#      dockerfile: ./Dockerfile
+#      context: .
+#    image: heycristhian/controle-financeiro
+#    container_name: controle-financeiro
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - "db"

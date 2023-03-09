@@ -20,7 +20,7 @@ public class ExceptionResponse {
     private String status;
     private String message;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String correlationId;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
