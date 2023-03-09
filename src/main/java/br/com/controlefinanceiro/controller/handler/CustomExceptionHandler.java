@@ -26,7 +26,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         var response = ExceptionResponse.builder()
                 .code(status.value())
                 .status(status.getReasonPhrase())
-                .message("Existe(m) campo(s) com erro")
+                .message("There are fields with errors")
                 .correlationId(getCorrelationId())
                 .fields(getFieldsExceptionResponse(ex))
                 .build();
@@ -36,7 +36,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ExceptionResponse> handleException(Exception e) {
         var httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
-        var response = handleExceptionResponse(httpStatus, "Erro inesperado do sistema");
+        var response = handleExceptionResponse(httpStatus, "Internal server error");
 
         log.error("Internal Server Error: {}", e.getLocalizedMessage());
         return ResponseEntity.status(httpStatus).body(response);

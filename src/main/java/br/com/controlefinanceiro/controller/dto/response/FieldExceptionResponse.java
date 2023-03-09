@@ -15,6 +15,6 @@ public class FieldExceptionResponse {
     private final String field;
     private final String message;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private final Object parameter;
 }
